@@ -142,7 +142,7 @@ public class Person : MonoBehaviour
     public static string Surename { get; set; }
     public static int Age { get; set; }
     public static float SkinColor { get; set; }
-    public static Color BeardColor { get; set; }
+    public static Color HairColor { get; set; }
 
     //UI elements for person
     public Text FullNameText;
@@ -240,18 +240,16 @@ public class Person : MonoBehaviour
             Element 3 - EyeSprites,           Element 3 - EyeSprites,
             Element 4 - MouthSprites,         Element 4 - MouthSprites,
         */
-        
+        float red = Random.value; // Brown color for generator
+        HairColor = new Color(red, red - 0.6f, 0f);
         if (Gender == "male") // Chooise body for gender
         {
             personParts[0].GetComponent<SpriteRenderer>().sprite = SpriteConteiners[0].SpritesList[0];
-
             /* Beard init for person*/
             Debug.Log(SpriteConteiners[2].SpritesList.Count);
             personParts[2].GetComponent<SpriteRenderer>().sprite = SpriteConteiners[2].SpritesList[Random.Range(0, SpriteConteiners[2].SpritesList.Count)];
             // Beard color generator  
-            float red = Random.value; // Brown color for generator
-            BeardColor = new Color(red, red - 0.6f, 0f);
-            personParts[2].GetComponent<SpriteRenderer>().color = BeardColor;
+            personParts[2].GetComponent<SpriteRenderer>().color = HairColor; // Beard only for male
         }
         else if (Gender == "female")
         {
