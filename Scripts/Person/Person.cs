@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Person : MonoBehaviour
 {
-    public SpritesGeneratorConteiner Bodies;
-
+    //System
+    private static Random RANDOMGENERATOR = new Random();
+    
     //All data about person
     private static string[] genders = { "male", "female" };
     private static string[] maleNames = { "A", "Avgust", "Avgustin", "Avraam", "Agafon", "Adonis", "Akaeio", "Alan", "Aleksandr",
@@ -138,39 +140,79 @@ public class Person : MonoBehaviour
     public static string Gender { get; set; }
     public static string Name { get; set; }
     public static string Surename { get; set; }
-    public static string Age { get; set; }
+    public static int Age { get; set; }
+    public static float SkinColor { get; set; }
+    public static Color BeardColor { get; set; }
+
+    //UI elements for person
+    public Text FullNameText;
+    
+
 
     // Sprites person
-    public GameObject BodySprite;
-    public GameObject Hairstyle;
-    public GameObject Clothes_up;
-    public GameObject Clothes_down;
-    public GameObject Helmet;
+    public List<GameObject> personParts = new List<GameObject>(5);
+    /*  Element 0 - Body,
+        Element 1 - Hairstyle,
+        Element 2 - Beard,
+        Element 3 - Eye,
+        Element 4 - Mouth,
+    */
 
-    // Parameters about person
-    public static int MAX_HEALTH { get; set; }
-    public static int Health { get; set; }
-    public static int MAX_DAMAGE { get; set; }
-    public static int Damage { get; set; }
+    // Conteiners for person
+    public List<SpritesGeneratorConteiner> SpriteConteiners = new List<SpritesGeneratorConteiner>();
+    /*
+        Element 0 - BodySprites,
+        Element 1 - HairstyleSprites,
+        Element 2 - BeardSprites,
+        Element 3 - EyeSprites,
+        Element 4 - MouthSprites,
+     */
+
+    //Clothes person ? Maybe new Class for clothes ?
+    //public List<GameObject> personClothes = new List<GameObject>(4);
+    /*  Element 0 - Clothes_up,
+        Element 1 - Clothes_down,
+        Element 2 - Helmet,
+        Element 3 - Instruments(Weapons),
+    */
+
+    // Parameters about person in updates
+    public Vector2 POSITION = new Vector2();
+    public int MAX_HEALTH = 100;
+    public int Health;
+    public int MAX_DAMAGE = 20;
+    public int Damage = 0;
+
+    // UI parameters for person
+    public bool PAUSE = false;
 
     private void Awake()
-    {
-       
-    }
-
-    private void Start()
-    {
-        CreateDataPerson();
-        CreateBodyPerson();
-        print(Info());
-    }
-
-    private void Update()
     {
         
     }
 
-    private void CreateDataPerson() // Gender, Name, Surename and another parameters
+    private void Start()
+    {
+        SetPositionPerson(Random.Range(-5, 5), Random.Range(-5, 5));
+        CreatePerson();
+    }
+
+    private void Update()
+    {
+        CheckPerson(PAUSE);
+    }
+
+    private void CheckParametersPerson() // Health, Position, Damage and another parameters
+    {
+        GetComponent<Transform>().position = POSITION; // every seconds we check position person
+    }
+
+    private void CheckUIPreson() 
+    {
+        
+    }
+
+    private void CreateDataPerson() // Gender, Name, Surename and another data
     {
         Gender = gendersRange[Random.Range(0, genders.Length)];
         if (Gender == "male")
@@ -182,26 +224,92 @@ public class Person : MonoBehaviour
             Name = femaleNamesRange[Random.Range(0, femaleNames.Length)];
         }
         Surename = surenamesRange[Random.Range(0, surenames.Length)];
+        Age = Random.Range(14, 60);
+
+        /* UI init */
+        FullNameText.text = GetFullName();
     }
 
-    private void CreateBodyPerson() // Gender, Name, Surename and another parameters
+    private void CreatePartsPerson() // Body, Hirstyle, Beard and another parts
     {
+        /*
+                *SpriteConteiners*                *personParts*
+            Element 0 - BodySprites,          Element 0 - Body,
+            Element 1 - HairstyleSprites,     Element 1 - Hairstyle,
+            Element 2 - BeardSprites,         Element 2 - BeardSprites,
+            Element 3 - EyeSprites,           Element 3 - EyeSprites,
+            Element 4 - MouthSprites,         Element 4 - MouthSprites,
+        */
+        
         if (Gender == "male") // Chooise body for gender
         {
-            BodySprite.GetComponent<SpriteRenderer>().sprite = Bodies.SpritesList[0]; 
+            personParts[0].GetComponent<SpriteRenderer>().sprite = SpriteConteiners[0].SpritesList[0];
+
+            /* Beard init for person*/
+            Debug.Log(SpriteConteiners[2].SpritesList.Count);
+            personParts[2].GetComponent<SpriteRenderer>().sprite = SpriteConteiners[2].SpritesList[Random.Range(0, SpriteConteiners[2].SpritesList.Count)];
+            // Beard color generator  
+            float red = Random.value; // Brown color for generator
+            BeardColor = new Color(red, red - 0.6f, 0f);
+            personParts[2].GetComponent<SpriteRenderer>().color = BeardColor;
         }
         else if (Gender == "female")
         {
-            BodySprite.GetComponent<SpriteRenderer>().sprite = Bodies.SpritesList[1];
+            personParts[0].GetComponent<SpriteRenderer>().sprite = SpriteConteiners[0].SpritesList[1];
         }
+
+        /* Skin color generator */
+        SkinColor = Random.value + 0.3f; // Init skin color of person
+        personParts[0].GetComponent<SpriteRenderer>().color = new Color((float)SkinColor, (float)SkinColor, (float)SkinColor);
     }
 
-    
-        public static string Info() 
+
+    public void SetPositionPerson(float x, float y) // Set position for person
+    {
+        POSITION = new Vector2(x, y);
+    }
+
+    public Vector2 GetPositionPerson() // Get postion of person
+    {
+        return POSITION;
+    }
+
+    public void CreatePerson()
+    {
+        CreateDataPerson();
+        CreatePartsPerson();
+        print(AllInfo());
+    }
+
+
+    public void CheckPerson(bool pause = false) 
+    {
+        if (!pause)
+        {
+            CheckParametersPerson();
+            CheckUIPreson();
+        }
+    }
+    //For generator
+    /*public void GeneratorPerson(int count)
+    {
+        for (int i = 0; i < count; i++)
+        {
+            CreatePerson();
+        }
+    }*/
+
+    public static string GetFullName() 
+    {
+        return Name + " " + Surename;
+    }
+
+    public static string AllInfo() 
     {
         return 
             "Gender: " + Gender + "\n" +
             "Name: " + Name + "\n" +
-            "Surename: " + Surename + "\n";
+            "Surename: " + Surename + "\n" +
+            "Age: " + Age + "\n";
     }
 }

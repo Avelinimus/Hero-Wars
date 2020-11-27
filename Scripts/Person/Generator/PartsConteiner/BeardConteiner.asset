@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec88210e0bd34bf48bdb4bdb95576898, type: 3}
+  m_Name: BeardConteiner
+  m_EditorClassIdentifier: 
+  SpritesList:
+  - {fileID: 21300000, guid: 6fadbeeb1db8c8e4b80189240cac50d3, type: 3}
+  - {fileID: 21300000, guid: ca30a22c52d68014b859ba1fd454352b, type: 3}
+  - {fileID: 21300000, guid: 5f503fe3d4523ff4987f3290e80355f1, type: 3}
+  - {fileID: 21300000, guid: b03d079c0c7e7fb48895e20e6aaca718, type: 3}
+  - {fileID: 21300000, guid: 1611bafeeb6b8b84b9ef93d547561e3b, type: 3}
+  - {fileID: 21300000, guid: eb1000df3d54f8048b58bdd7c1535aec, type: 3}
+  - {fileID: 21300000, guid: aa9016f4c03a11240b90ec5b97b5ed27, type: 3}
+  - {fileID: 21300000, guid: 7f6c34042f1783645a2ee2f20340abd2, type: 3}
+  - {fileID: 21300000, guid: d05e0c57f65ec794eaeb9a17f1709af2, type: 3}
+  - {fileID: 21300000, guid: df1f96e33a259ea47bd2a02448b99fd6, type: 3}
+  - {fileID: 21300000, guid: 6a1f2cd7b2309444b816204ed8f2cc74, type: 3}
