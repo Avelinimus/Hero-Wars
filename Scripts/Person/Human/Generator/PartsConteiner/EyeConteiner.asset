@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec88210e0bd34bf48bdb4bdb95576898, type: 3}
+  m_Name: EyeConteiner
+  m_EditorClassIdentifier: 
+  SpritesList:
+  - {fileID: 21300000, guid: 250f8178f553aab4189e4a407a595c58, type: 3}
+  - {fileID: 21300000, guid: 39bd0ac211258a243a1f4fa91a52310f, type: 3}
+  - {fileID: 21300000, guid: b1e4f7e40effa1f4c86848f7effd85ae, type: 3}
+  - {fileID: 21300000, guid: 05e5523a42a1a7d4ab32f96f3ba3f5a6, type: 3}
+  - {fileID: 21300000, guid: 31bff8b3af9820242a8e9d548ee66d77, type: 3}

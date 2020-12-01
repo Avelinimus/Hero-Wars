@@ -2,7 +2,6 @@ import requests
 from bs4 import BeautifulSoup
 import re
 
-
 abet_rus = {
     "А": "a",
     "Б": "b",
@@ -74,3 +73,4 @@ for name in names:
                         k = abet_rus[k.upper()]
                 file.write(k)
 file.close()
+
