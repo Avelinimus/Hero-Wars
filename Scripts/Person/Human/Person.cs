@@ -189,8 +189,6 @@ public class Person : MonoBehaviour
         Element 5 - MouthSprites,
      */
 
-    //Clothes person ? Maybe new Class for clothes ?
-    //public List<GameObject> personClothes = new List<GameObject>(4);
     /*  Element 0 - Clothes_up,
         Element 1 - Clothes_down,
         Element 2 - Helmet,
@@ -201,9 +199,9 @@ public class Person : MonoBehaviour
     public Vector2 POSITION = new Vector2();
     public int MAX_HEALTH = 100;
     public int Health;
-    public int MAX_DAMAGE = 20;
     public int Damage = 0;
 
+    // Cloth parameter for person
     public bool DressedCloth_up = false;
     public bool DressedCloth_down = false;
     public bool DressedHelmet = false;
@@ -211,7 +209,8 @@ public class Person : MonoBehaviour
     public bool DressedRight_arm = false;
 
     // UI parameters for person
-    public bool PAUSE = false;
+    public bool PAUSE = false; // for pause persone
+    public bool CONTROL = false; // for control persone
 
     private void Awake()
     {
@@ -220,7 +219,7 @@ public class Person : MonoBehaviour
 
     private void Start()
     {
-        SetPositionPerson(Random.Range(-5, 5), Random.Range(-5, 5));
+        SetPositionPerson(Random.Range(-5, 5), Random.Range(-5, 5));// For create the game this method need to off
         CreatePerson();
     }
 
@@ -231,16 +230,16 @@ public class Person : MonoBehaviour
 
     private void CheckParametersPerson() // Health, Position, Damage and another parameters
     {
-        GetComponent<Transform>().position = POSITION; // every seconds we check position person
+        GetComponent<Transform>().position = POSITION; // Every seconds we check position person
     }
 
     private void CheckUIPereson() 
     {
         
     }
+
     private void CheckDressPerson() 
     {
-        
         for (int i = 0; i < 5; i++) {
             switch (i)
             {
@@ -262,6 +261,7 @@ public class Person : MonoBehaviour
             }
         }
     }
+
     private void CreateDressPerson() 
     {
 
@@ -273,7 +273,8 @@ public class Person : MonoBehaviour
         Element 3 - PrefabsLeft_arm,         Element 3 - Left_arm,
         Element 4 - PrefabsRight_arm,        Element 4 - Right_arm,
         */
-        SetDressPerson(0, true);
+
+        // To do some future
         Instantiate(personPrefabsClothes[0], personClothes[0].GetComponent<Transform>());
         Instantiate(personPrefabsClothes[1], personClothes[1].GetComponent<Transform>());
         Instantiate(personPrefabsClothes[2], personClothes[2].GetComponent<Transform>());
@@ -292,6 +293,7 @@ public class Person : MonoBehaviour
         }
         Surename = surenamesRange[Random.Range(0, surenames.Length)];
         Age = Random.Range(14, 60);
+        name = GetFullName();
 
         /* UI init */
         FullNameText.text = GetFullName();
@@ -364,11 +366,6 @@ public class Person : MonoBehaviour
         POSITION = new Vector2(x, y);
     }
 
-    public Vector2 GetPositionPerson() // Get postion of person
-    {
-        return POSITION;
-    }
-
     public void CreatePerson()
     {
         CreateDataPerson();
@@ -376,7 +373,6 @@ public class Person : MonoBehaviour
         CreateDressPerson();
         print(AllInfo());
     }
-
 
     public void CheckPerson(bool pause = false) 
     {
@@ -395,7 +391,7 @@ public class Person : MonoBehaviour
             CreatePerson();
         }
     }*/
-
+    
     public void SetDressPerson(int element, bool dressed) 
     {
         if (element >= 4) 
@@ -429,7 +425,6 @@ public class Person : MonoBehaviour
     {
         return Name + " " + Surename;
     }
-
     public static string AllInfo() 
     {
         return 
@@ -437,5 +432,12 @@ public class Person : MonoBehaviour
             "Name: " + Name + "\n" +
             "Surename: " + Surename + "\n" +
             "Age: " + Age + "\n";
+    }
+    private void OnMouseDown()
+    {
+        if (CONTROL)
+        {
+            Control.Target = this.gameObject; // Target for control
+        }
     }
 }
