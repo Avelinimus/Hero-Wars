@@ -7,7 +7,7 @@ public class Person : MonoBehaviour
 {
     //System
     private static Random RANDOMGENERATOR = new Random();
-    
+
     //All data about person
     private static string[] genders = { "male", "female" };
     private static string[] maleNames = { "A", "Avgust", "Avgustin", "Avraam", "Agafon", "Adonis", "Akaeio", "Alan", "Aleksandr",
@@ -26,7 +26,7 @@ public class Person : MonoBehaviour
         "Ruslan", "Rustam", "Ren", "S", "Savva", "Saveliei", "Samson", "Samuil", "Svyatoslav", "Sevastyan", "Semen", "Sergeei",
         "Sora", "Stanislav", "Stepan", "T", "Takeshi", "Taras", "Teodor", "Terentiei", "Timofeei", "Timur", "Tihon", "Tomas",
         "Trofim", "F", "Faddeei", "Fedor", "Fedot", "Feliks", "Filat", "Filimon", "Filipp", "Foma", "CH", "CHarli", "E",
-        "Edgar", "Eduard", "Eldar", "Erik", "U", "Ulian", "Uliei", "Uma", "Uriei", "YA", "YAkov", "YAmato", "YAn", "YAroslav", 
+        "Edgar", "Eduard", "Eldar", "Erik", "U", "Ulian", "Uliei", "Uma", "Uriei", "YA", "YAkov", "YAmato", "YAn", "YAroslav",
     };
     private static string[] femaleNames = { "Avdotya", "Avrora", "Agata", "Aglaya", "Agnessa", "Agniya", "Ada", "Adelina",
         "Adelaida", "Adel", "Adilya", "Adriana", "Aza", "Azaliya", "Aziza", "Aeigul", "Aeilin", "Aida", "Aksinya", "Akulina",
@@ -48,13 +48,13 @@ public class Person : MonoBehaviour
         "Sabrina", "Saida", "Samira", "Saniya", "Sara", "Svetlana", "Serafima", "Slava", "Snejana", "Sonya", "Sofiya", "Stanislava",
         "Stella", "Stefaniya", "Taisiya", "Tamara", "Tamila", "Tatyana", "Tina", "Ulyana", "Ustinya", "Faina", "Farida", "Fatima",
         "Hristina", "SHarlotta", "Evelina", "Evita", "Eleonora", "Eliza", "Elina", "Ella", "Elvina", "Elvira", "Elza", "Elmira",
-        "Elya", "Emiliya", "Emma", "Erika", "Uliya", "YAna", "YAnina", "YArina", "YAroslava", "YAsmina", 
+        "Elya", "Emiliya", "Emma", "Erika", "Uliya", "YAna", "YAnina", "YArina", "YAroslava", "YAsmina",
     };
     private static string[] surenames = { "Smith", "Johnson", "Williams", "Brown", "Jones", "Miller", "Davis",
         "Garcia", "Rodriguez", "Wilson", "Martinez", "Anderson", "Taylor", "Thomas", "Hernandez", "Moore", "Martin", "Jackson",
-        "Thompson", "White", "Lopez", "Lee", "Gonzalez", "Harris", "Clark", "Lewis", "Robinson", "Walker", "Perez", "Hall", 
-        "Young", "Allen", "Sanchez", "Wright", "King", "Scott", "Green", "Baker", "Adams", "Nelson", "Hill", "Ramirez", 
-        "Campbell", "Mitchell", "Roberts", "Carter", "Phillips", "Evans", "Turner", "Torres", "Parker", "Collins", "Edwards", 
+        "Thompson", "White", "Lopez", "Lee", "Gonzalez", "Harris", "Clark", "Lewis", "Robinson", "Walker", "Perez", "Hall",
+        "Young", "Allen", "Sanchez", "Wright", "King", "Scott", "Green", "Baker", "Adams", "Nelson", "Hill", "Ramirez",
+        "Campbell", "Mitchell", "Roberts", "Carter", "Phillips", "Evans", "Turner", "Torres", "Parker", "Collins", "Edwards",
         "Stewart", "Flores", "Morris", "Nguyen", "Murphy", "Rivera", "Cook", "Rogers", "Morgan", "Peterson", "Cooper", "Reed",
         "Bailey", "Bell", "Gomez", "Kelly", "Howard", "Ward", "Cox", "Diaz", "Richardson", "Wood", "Watson", "Brooks", "Bennett",
         "Gray", "James", "Reyes", "Cruz", "Hughes", "Price", "Myers", "Long", "Foster", "Sanders", "Ross", "Morales", "Powell",
@@ -70,9 +70,9 @@ public class Person : MonoBehaviour
         "Armstrong", "Berry", "Andrews", "Johnston", "Ray", "Lane", "Riley", "Carpenter", "Perkins", "Aguilar", "Silva", "Richards",
         "Willis", "Matthews", "Chapman", "Lawrence", "Garza", "Vargas", "Watkins", "Wheeler", "Larson", "Carlson", "Harper", "George",
         "Greene", "Burke", "Guzman", "Morrison", "Munoz", "Jacobs", "Lawson", "Franklin", "Lynch", "Bishop", "Carr", "Salazar", "Austin",
-        "Mendez", "Gilbert", "Jensen", "Williamson", "Montgomery", "Harvey", "Oliver", "Howell", "Dean", "Hanson", "Weber", "Garrett", 
+        "Mendez", "Gilbert", "Jensen", "Williamson", "Montgomery", "Harvey", "Oliver", "Howell", "Dean", "Hanson", "Weber", "Garrett",
         "Sims", "Burton", "Fuller", "Soto", "Welch", "Chen", "Schultz", "Walters", "Reid", "Fields", "Walsh", "Little", "Fowler", "Bowman",
-        "Davidson", "May", "Day", "Schneider", "Newman", "Brewer", "Lucas", "Holland", "Wong", "Banks", "Santos", "Curtis", "Pearson", 
+        "Davidson", "May", "Day", "Schneider", "Newman", "Brewer", "Lucas", "Holland", "Wong", "Banks", "Santos", "Curtis", "Pearson",
         "Delgado", "Valdez", "Pena", "Rios", "Douglas", "Sandoval", "Barrett", "Hopkins", "Keller", "Guerrero", "Stanley", "Bates",
         "Alvarado", "Beck", "Ortega", "Wade", "Estrada", "Contreras", "Barnett", "Caldwell", "Santiago", "Lambert", "Powers", "Chambers",
         "Nunez", "Craig", "Leonard", "Lowe", "Rhodes", "Byrd", "Gregory", "Shelton", "Frazier", "Becker", "Maldonado", "Fleming", "Vega",
@@ -85,36 +85,36 @@ public class Person : MonoBehaviour
         "Paul", "Manning", "Garner", "Reese", "Francis", "Burgess", "Adkins", "Goodman", "Curry", "Brady", "Christensen", "Potter",
         "Walton", "Goodwin", "Mullins", "Molina", "Webster", "Fischer", "Campos", "Avila", "Sherman", "Todd", "Chang", "Blake",
         "Malone", "Wolf", "Hodges", "Juarez", "Gill", "Farmer", "Hines", "Gallagher", "Duran", "Hubbard", "Cannon", "Miranda",
-        "Wang", "Saunders", "Tate", "Mack", "Hammond", "Carrillo", "Townsend", "Wise", "Ingram", "Barton", "Mejia", "Ayala", 
+        "Wang", "Saunders", "Tate", "Mack", "Hammond", "Carrillo", "Townsend", "Wise", "Ingram", "Barton", "Mejia", "Ayala",
         "Schroeder", "Hampton", "Rowe", "Parsons", "Frank", "Waters", "Strickland", "Osborne", "Maxwell", "Chan", "Deleon",
         "Norman", "Harrington", "Casey", "Patton", "Logan", "Bowers", "Mueller", "Glover", "Floyd", "Hartman", "Buchanan",
         "Cobb", "French", "Kramer", "Clarke", "Tyler", "Gibbs", "Moody", "Conner", "Sparks", "Leon", "Bauer", "Norton", "Pope",
         "Flynn", "Hogan", "Robles", "Salinas", "Yates", "Lindsey", "Lloyd", "Marsh", "Owen", "Solis", "Pham", "Lang", "Pratt",
         "Lara", "Brock", "Ballard", "Trujillo", "Shaffer", "Drake", "Roman", "Aguirre", "Morton", "Stokes", "Lamb", "Pacheco",
-        "Patrick", "Cochran", "Shepherd", "Cain", "Burnett", "Hess", "Li", "Cervantes", "Olsen", "Briggs", "Ochoa", "Cabrera", 
-        "Velasquez", "Montoya", "Roth", "Meyers", "Cardenas", "Fuentes", "Weiss", "Hoover", "Wilkins", "Nicholson", "Underwood", 
+        "Patrick", "Cochran", "Shepherd", "Cain", "Burnett", "Hess", "Li", "Cervantes", "Olsen", "Briggs", "Ochoa", "Cabrera",
+        "Velasquez", "Montoya", "Roth", "Meyers", "Cardenas", "Fuentes", "Weiss", "Hoover", "Wilkins", "Nicholson", "Underwood",
         "Short", "Carson", "Morrow", "Colon", "Holloway", "Summers", "Bryan", "Petersen", "Serrano", "Wilcox", "Carey", "Clayton",
         "Poole", "Calderon", "Gallegos", "Greer", "Rivas", "Guerra", "Decker", "Collier", "Wall", "Whitaker", "Bass", "Flowers",
-        "Davenport", "Conley", "Houston", "Huff", "Copeland", "Hood", "Monroe", "Massey", "Roberson", "Combs", "Franco", "Larsen", 
-        "Pittman", "Randall", "Skinner", "Wilkinson", "Kirby", "Cameron", "Bridges", "Anthony", "Richard", "Kirk", "Bruce", 
-        "Singleton", "Mathis", "Bradford", "Boone", "Abbott", "Charles", "Allison", "Sweeney", "Atkinson", "Horn", "Jefferson", 
+        "Davenport", "Conley", "Houston", "Huff", "Copeland", "Hood", "Monroe", "Massey", "Roberson", "Combs", "Franco", "Larsen",
+        "Pittman", "Randall", "Skinner", "Wilkinson", "Kirby", "Cameron", "Bridges", "Anthony", "Richard", "Kirk", "Bruce",
+        "Singleton", "Mathis", "Bradford", "Boone", "Abbott", "Charles", "Allison", "Sweeney", "Atkinson", "Horn", "Jefferson",
         "Rosales", "York", "Christian", "Phelps", "Farrell", "Castaneda", "Nash", "Dickerson", "Bond", "Wyatt", "Foley", "Chase",
-        "Gates", "Vincent", "Mathews", "Hodge", "Garrison", "Trevino", "Villarreal", "Heath", "Dalton", "Valencia", "Callahan", 
+        "Gates", "Vincent", "Mathews", "Hodge", "Garrison", "Trevino", "Villarreal", "Heath", "Dalton", "Valencia", "Callahan",
         "Hensley", "Atkins", "Huffman", "Roy", "Boyer", "Shields", "Lin", "Hancock", "Grimes", "Glenn", "Cline", "Delacruz",
         "Camacho", "Dillon", "Parrish", "Melton", "Booth", "Kane", "Berg", "Harrell", "Pitts", "Savage", "Wiggins", "Brennan",
-        "Salas", "Marks", "Russo", "Sawyer", "Baxter", "Golden", "Hutchinson", "Liu", "Walter", "Wiley", "Rich", "Humphrey", 
+        "Salas", "Marks", "Russo", "Sawyer", "Baxter", "Golden", "Hutchinson", "Liu", "Walter", "Wiley", "Rich", "Humphrey",
         "Johns", "Koch", "Suarez", "Hobbs", "Beard", "Gilmore", "Ibarra", "Keith", "Macias", "Khan", "Andrade", "Ware", "Stephenson",
         "Henson", "Wilkerson", "Dyer", "Blackwell", "Mercado", "Tanner", "Eaton", "Clay", "Barron", "Beasley", "Preston", "Small",
         "Wu", "Zamora", "MacDonald", "Vance", "Snow", "Stafford", "Barry", "English", "Shannon", "Kline", "Jacobson", "Woodard",
         "Huang", "Kemp", "Mosley", "Prince", "Merritt", "Hurst", "Villanueva", "Roach", "Nolan", "Lam", "Yoder", "Lester", "Santana",
         "Valenzuela", "Winters", "Barrera", "Leach", "Orr", "Berger", "Strong", "Conway", "Stein", "Whitehead", "Bullock", "Escobar",
-        "Knox", "Meadows", "Solomon", "Velez", "Kerr", "Stout", "Blankenship", "Browning", "Kent", "Lozano", "Bartlett", "Pruitt", 
+        "Knox", "Meadows", "Solomon", "Velez", "Kerr", "Stout", "Blankenship", "Browning", "Kent", "Lozano", "Bartlett", "Pruitt",
         "Buck", "Barr", "Gaines", "Durham", "Gentry", "Sloan", "Melendez", "Rocha", "Herman", "Sexton", "Moon", "Hendricks", "Rangel",
         "Stark", "Lowery", "Hardin", "Hull", "Sellers", "Ellison", "Calhoun", "Gillespie", "Mora", "Knapp", "Morse", "Dorsey", "Weeks",
         "Nielsen", "Livingston", "Leblanc", "Bradshaw", "Glass", "Middleton", "Buckley", "Schaefer", "Frost", "Howe", "House", "Ho",
-        "Pennington", "Reilly", "Hebert", "Hickman", "Noble", "Spears", "Conrad", "Arias", "Galvan", "Velazquez", "Huynh", "Frederick", 
+        "Pennington", "Reilly", "Hebert", "Hickman", "Noble", "Spears", "Conrad", "Arias", "Galvan", "Velazquez", "Huynh", "Frederick",
         "Randolph", "Cantu", "Fitzpatrick", "Mahoney", "Peck", "Villa", "Michael", "Donovan", "Walls", "Boyle", "Mayer", "Zuniga",
-        "Giles", "Pineda", "Pace", "Hurley", "Mays", "Crosby", "Ayers", "Case", "Bentley", "Shepard", "Everett", "Pugh", "David", 
+        "Giles", "Pineda", "Pace", "Hurley", "Mays", "Crosby", "Ayers", "Case", "Bentley", "Shepard", "Everett", "Pugh", "David",
         "Dunlap", "Bender", "Hahn", "Harding", "Acevedo", "Raymond", "Blackburn", "Duffy", "Landry", "Dougherty", "Bautista", "Shah",
         "Potts", "Arroyo", "Valentine", "Meza", "Gould", "Vaughan", "Fry", "Rush", "Avery", "Herring", "Dodson", "Clements", "Sampson",
         "Tapia", "Bean", "Lynn", "Crane", "Farley", "Cisneros", "Benton", "Ashley", "Finley", "Best", "Blevins", "Friedman", "Moses",
@@ -125,10 +125,10 @@ public class Person : MonoBehaviour
         "Kaufman", "Dudley", "Beltran", "Dickson", "Villegas", "Proctor", "Hester", "Cantrell", "Daugherty", "Cherry", "Bray", "Davila",
         "Rowland", "Levine", "Madden", "Spence", "Good", "Irwin", "Werner", "Krause", "Petty", "Whitney", "Baird", "Hooper", "Pollard",
         "Zavala", "Jarvis", "Holden", "Haas", "Hendrix", "Bird", "Lucero", "Terrell", "Riggs", "Joyce", "Mercer", "Rollins", "Galloway",
-        "Duke", "Odom", "Andersen", "Downs", "Hatfield", "Benitez", "Archer", "Huerta", "Travis", "Hinton", "Zhang", "Hays", "Mayo", 
+        "Duke", "Odom", "Andersen", "Downs", "Hatfield", "Benitez", "Archer", "Huerta", "Travis", "Hinton", "Zhang", "Hays", "Mayo",
         "Fritz", "Branch", "Mooney", "Ewing", "Ritter", "Esparza", "Frey", "Braun", "Gay", "Riddle", "Haney", "Kaiser", "Holder", "Chaney",
         "Gamble", "Vang", "Cooley", "Carney", "Cowan", "Forbes", "Ferrell", "Davies", "Barajas", "Shea", "Osborn", "Bright", "Cuevas", "Bolton",
-        "Murillo", "Lutz", "Duarte", "Kidd", "Key", "Cooke", 
+        "Murillo", "Lutz", "Duarte", "Kidd", "Key", "Cooke",
     };
 
     List<string> gendersRange = new List<string>(genders);
@@ -150,25 +150,7 @@ public class Person : MonoBehaviour
     public Text FullNameText;
 
     // Gameobjects person Clothes (GameObjects)
-    public List<GameObject> personClothes = new List<GameObject>(5);
-    /*
-        Element 0 - Cloth_up,
-        Element 1 - Cloth_down,
-        Element 2 - Cloth_helmet,
-        Element 3 - Left_arm,
-        Element 4 - Right_arm,
-     */
-
-    // Gameobjects person Clothes (GameObjects)
-    public List<GameObject> personPrefabsClothes = new List<GameObject>(5);
-    /*
-        Element 0 - PrefabsCloth_up,
-        Element 1 - PrefabsCloth_down,
-        Element 2 - PrefabsCloth_helmet,
-        Element 3 - PrefabsLeft_arm,
-        Element 4 - PrefabsRight_arm,
-     */
-
+   
     // Sprites person (GameObjects)
     public List<GameObject> personParts = new List<GameObject>(5);
     /*  Element 0 - Body,
@@ -197,29 +179,21 @@ public class Person : MonoBehaviour
 
     // Parameters about person in updates
     public Vector2 POSITION = new Vector2();
+    public int INVENTORY_SIZE = 4;
     public int MAX_HEALTH = 100;
     public int Health;
+    public int Food;
+    public int Whater;
+    public int Sleep;
     public int Damage = 0;
-
-    // Cloth parameter for person
-    public bool DressedCloth_up = false;
-    public bool DressedCloth_down = false;
-    public bool DressedHelmet = false;
-    public bool DressedLeft_arm = false;
-    public bool DressedRight_arm = false;
 
     // UI parameters for person
     public bool PAUSE = false; // for pause persone
     public bool CONTROL = false; // for control persone
 
-    private void Awake()
-    {
-        
-    }
-
     private void Start()
     {
-        SetPositionPerson(Random.Range(-5, 5), Random.Range(-5, 5));// For create the game this method need to off
+        //SetPositionPerson(Random.Range(-5, 5), Random.Range(-5, 5));// For create the game this method need to off
         CreatePerson();
     }
 
@@ -228,57 +202,20 @@ public class Person : MonoBehaviour
         CheckPerson(PAUSE);
     }
 
+    /* CHECK PERSON */
+
     private void CheckParametersPerson() // Health, Position, Damage and another parameters
     {
         GetComponent<Transform>().position = POSITION; // Every seconds we check position person
     }
 
-    private void CheckUIPereson() 
-    {
-        
-    }
-
-    private void CheckDressPerson() 
-    {
-        for (int i = 0; i < 5; i++) {
-            switch (i)
-            {
-                case 0:
-                    personClothes[0].SetActive(DressedCloth_up);
-                    break;
-                case 1:
-                    personClothes[1].SetActive(DressedCloth_down);
-                    break;
-                case 2:
-                    personClothes[2].SetActive(DressedHelmet);
-                    break;
-                case 3:
-                    personClothes[3].SetActive(DressedLeft_arm);
-                    break;
-                case 4:
-                    personClothes[4].SetActive(DressedRight_arm);
-                    break;
-            }
-        }
-    }
-
-    private void CreateDressPerson() 
+    private void CheckUIPereson()
     {
 
-        /*
-          *personPrefabsClothes*                *personClothes*
-        Element 0 - PrefabsCloth_up,         Element 0 - Cloth_up,     
-        Element 1 - PrefabsCloth_down,       Element 1 - Cloth_down,
-        Element 2 - PrefabsCloth_helmet,     Element 2 - Cloth_helmet,
-        Element 3 - PrefabsLeft_arm,         Element 3 - Left_arm,
-        Element 4 - PrefabsRight_arm,        Element 4 - Right_arm,
-        */
-
-        // To do some future
-        Instantiate(personPrefabsClothes[0], personClothes[0].GetComponent<Transform>());
-        Instantiate(personPrefabsClothes[1], personClothes[1].GetComponent<Transform>());
-        Instantiate(personPrefabsClothes[2], personClothes[2].GetComponent<Transform>());
     }
+
+
+    /* CREATE PERSON */
 
     private void CreateDataPerson() // Gender, Name, Surename and another data
     {
@@ -315,19 +252,19 @@ public class Person : MonoBehaviour
         {
             HairColor = new Color(color, color - 0.6f, 0f);//red - brown black
         }
-        else 
+        else
         {
             if (Random.value > 0.5f)
             {
                 HairColor = new Color(color, color, color);// grey - black
             }
-            else 
+            else
             {
                 HairColor = new Color(1f, 1f, color);//yellow - white
             }
         }
         EyeColor = new Color(Random.value, Random.value, Random.value);
-        MouthColor = new Color(Random.value+0.55f, 0, 0);
+        MouthColor = new Color(Random.value + 0.55f, 0, 0);
 
 
         //Init beard, hair, eye, mouth color generator  
@@ -340,7 +277,7 @@ public class Person : MonoBehaviour
         {
             personParts[0].GetComponent<SpriteRenderer>().sprite = SpriteConteiners[0].SpritesList[0];
             /* Hairstyle init for person */
-            personParts[1].GetComponent<SpriteRenderer>().sprite = SpriteConteiners[1].SpritesList[Random.Range(0, SpriteConteiners[1   ].SpritesList.Count)];
+            personParts[1].GetComponent<SpriteRenderer>().sprite = SpriteConteiners[1].SpritesList[Random.Range(0, SpriteConteiners[1].SpritesList.Count)];
             /* Beard init for person*/
             //Debug.Log(SpriteConteiners[2].SpritesList.Count);
             personParts[2].GetComponent<SpriteRenderer>().sprite = SpriteConteiners[3].SpritesList[Random.Range(0, SpriteConteiners[3].SpritesList.Count)];
@@ -361,83 +298,58 @@ public class Person : MonoBehaviour
         personParts[0].GetComponent<SpriteRenderer>().color = new Color((float)SkinColor, (float)SkinColor, (float)SkinColor);
     }
 
-    public void SetPositionPerson(float x, float y) // Set position for person
-    {
-        POSITION = new Vector2(x, y);
-    }
-
+    // GLOBAL CREATE
     public void CreatePerson()
     {
         CreateDataPerson();
         CreatePartsPerson();
-        CreateDressPerson();
-        print(AllInfo());
+        print(GetAllInfo());
     }
 
-    public void CheckPerson(bool pause = false) 
+    // GLOBAL CHECK
+    public void CheckPerson(bool pause = false)
     {
         if (!pause)
         {
             CheckParametersPerson();
             CheckUIPereson();
-            CheckDressPerson();
         }
     }
-    //For generator
-    /*public void GeneratorPerson(int count)
-    {
-        for (int i = 0; i < count; i++)
-        {
-            CreatePerson();
-        }
-    }*/
+ 
+
+    // SETERS AND GETERS FOR PERSON
     
-    public void SetDressPerson(int element, bool dressed) 
-    {
-        if (element >= 4) 
-        {
-            element = 4;
-        }
-        if(element <= 0) 
-        {
-            element = 0;
-        }
-        switch (element)
-        {
-            case 0:
-                DressedCloth_up = dressed;
-                break;
-            case 1:
-                DressedCloth_down = dressed;
-                break;
-            case 2:
-                DressedHelmet = dressed;
-                break;
-            case 3:
-                DressedLeft_arm = dressed;
-                break;
-            case 4:
-                DressedRight_arm = dressed;
-                break;
-        }
-    }
-    public static string GetFullName() 
+    public static string GetFullName()
     {
         return Name + " " + Surename;
     }
-    public static string AllInfo() 
+    public static string GetAllInfo()
     {
-        return 
+        return
             "Gender: " + Gender + "\n" +
             "Name: " + Name + "\n" +
             "Surename: " + Surename + "\n" +
             "Age: " + Age + "\n";
     }
-    private void OnMouseDown()
+    public void SetPositionPerson(float x, float y) // Set position for person
+    {
+        POSITION = new Vector2(x, y);
+    }
+
+    private void OnMouseDown() // Choise the person with CONTROL
     {
         if (CONTROL)
         {
             Control.Target = this.gameObject; // Target for control
+            Inventory Inventory = Control.Target.GetComponent<Inventory>();
+            Inventory.UIInventory.SetActive(false);
         }
     }
+
+    /*private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        Debug.Log(collision.gameObject.name);
+        
+    }*/
 }

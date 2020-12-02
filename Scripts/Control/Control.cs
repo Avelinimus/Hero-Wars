@@ -3,18 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[Serializable]
+
 public class Control : MonoBehaviour
 {
     
     public static GameObject Target;
     public GameObject Camera;
+    private Inventory Inventory = new Inventory();
+    public bool CanTake;
 
-    void Update() 
+    void Update()
     {
         Inputs(); //Control player
     }
-    
+
     public void Inputs() 
     {
         if (Input.GetMouseButtonDown(1)) 
@@ -25,6 +27,8 @@ public class Control : MonoBehaviour
         {
             if (Target.GetComponent<Person>().CONTROL)
             {
+                Inventory Inventory = Target.GetComponent<Inventory>();
+                /* MOVEMENT INPUTS */
                 if (Input.GetKey("a"))
                 {
                     Target.GetComponent<Person>().POSITION -= new Vector2(0.01f, 0).normalized * Time.deltaTime;
@@ -42,10 +46,17 @@ public class Control : MonoBehaviour
                     Target.GetComponent<Person>().POSITION -= new Vector2(0, 0.01f).normalized * Time.deltaTime;
                 }
                 Camera.GetComponent<Transform>().position = new Vector3(Target.GetComponent<Person>().POSITION.x, Target.GetComponent<Person>().POSITION.y, -10);
+                /* INVENTORY */
+                if (Input.GetKeyDown("e"))
+                {
+                    Inventory.UIInventory.SetActive(!Inventory.UIInventory.active);
+                }
+                Inventory.SetActivityIneventory(Target.GetComponent<Person>().INVENTORY_SIZE);
             }
         }
         else
         {
+            // CAMERA INPUTS
             if (Input.GetKey("a"))
             {
                 Camera.GetComponent<Transform>().position -= new Vector3(1f, 0).normalized * Time.deltaTime;
@@ -62,6 +73,7 @@ public class Control : MonoBehaviour
             {
                 Camera.GetComponent<Transform>().position -= new Vector3(0, 1f).normalized * Time.deltaTime;
             }
+            
         }
     }
     
